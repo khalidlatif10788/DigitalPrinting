@@ -1,0 +1,279 @@
+
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block content %}
+ 
+<section class="container-fluid Services servicesSep" style="background-image: url('{% static "images/background-services-c.jpg" %}');"><!--Services servicesSep -->
+<!-- <div class="container-fluid "> -->
+<p class=" text-center service-Heading">Our Services</p>
+
+<!--our Services sale-->
+<div class="row  mt-5 service-row d-flex flex-row">
+  {% for category in MainCategory %}
+  <div class=" col-xm-6 col-sm-6  col-md-6 col-lg-4 cardService d-flex justify-content-around">
+    <div class="card">
+      <a href="{% url 'DigitalPrintingPress:productList' category.main_category_id %}"><img src="{{category.main_category_photo.url}}" class="card-img-top img-responsive" alt="..."></a>
+      <div class="card-body">
+        <h5 class="text-center explore">Explore</h5>
+        <h3 class="card-title text-center">{{category.main_category_name}}</h3>
+       
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+ 
+
+</div>
+<!-- </div> -->
+  </section>
+   <!-- <section class="Services experienctsection"> -->
+  <section class="container-fluid Services experence-tsection">
+
+      <div class="row row-exp d-flex flex-row">
+      <div Class="col-xm-6 col-sm-6 col-md-6 col-lg-4 offset-lg-4 offset-sm-2 offset-md-3 offset-xm-2" >
+        <p class="text-center exp-text display-6">Experience Allows Us To Printing Things</p>
+    </div>
+    </div>
+    <div class="row  mt-5 d-flex flex-row ">
+      <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-4  d-flex justify-content-around">
+      <div class="col card1">
+        <div class="cardd card-ExperienceAlowUs1">
+          <div class="row ">
+        <div class="col-4">
+          <div class="printingpress"><i class='far fa-user-circle'></i></div>
+        </div>
+        <div class="col-8 card-des">
+          <div class="printing-text printing-text-1">
+          <h4 clas="print-heading">Printing Press</h4>
+           <p class="p-class">publishing and graphic design, Lorem ipsum is a placeholder text </p>
+          </div>
+         
+        </div>
+        </div>
+          </div>
+        </div>
+      </div>
+      <!--col-2-->
+
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 card2 d-flex justify-content-around">
+        <div class="cardd card-ExperienceAlowUs-center2">
+        <img src="{% static 'images/centerImage.jpg' %}" class="img-responsive" alt="">
+           
+          </div>
+        </div>
+        <!--col-3-->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-around card3">
+          <div class="cardd card-ExperienceAlowUs3">
+          
+            <div class="row ">
+              <div class="col-4">
+                <div class="printingpress"><i class='far fa-user-circle'></i></div>
+              </div>
+
+              <div class="col-8 ">
+                <div class="printing-text">
+                <h4 clas="print-heading">3D Prenting</h4>
+                <p class="p-class "> publishing and graphic design, Lorem ipsum is a placeholder text</p> 
+                </div>
+               
+              </div>
+              </div>
+            </div>
+          </div>
+    <!--col-4-->
+    <div class="col-xs-12 col-sm-12 col-md-6 offset-md-1 col-lg-4  d-flex justify-content-around  card4">
+      <div class="cardd card-ExperienceAlowUs4">
+      
+        <div class="row ">
+          <div class="col-4">
+            <div class="printingpress"><i class='far fa-user-circle'></i></div>
+          </div>
+          <div class="col-8 ">
+            <div class="printing-text">
+            <h4 clas="print-heading">Digital Prenting</h4>
+             <p class="p-class">publishing and graphic design, Lorem ipsum is a placeholder text </p>
+            </div>
+           
+          </div>
+
+          </div>
+        </div>
+      </div>
+  
+    <!--col-5-->
+     <div class="col-xs-12 col-sm-12 col-md- col-lg-4 offset-md-4  card5 d-flex justify-content-around card4">
+      <div class="cardd card-ExperienceAlowUs5">
+        <div class="row ">
+          <div class="col-4">
+            <div class="printingpress"><i class='far fa-user-circle'></i></div>
+          </div>
+          <div class="col-8">
+            <div class="printing-text">
+            <h4 clas="print-heading">Offset Printing</h4>
+            <p class="p-class-5"> publishing and graphic design, Lorem ipsum is a placeholder text </p>
+            </div>
+           
+          </div>
+          </div>
+         
+        </div>
+      </div> 
+    
+    <!--end-col-->
+    </div>
+    
+    <!--our Services sale-->
+
+    <!-- </div> -->
+      </section>
+     
+<!-- <div class="container-fluid servicesDreamWork"> -->
+  <section class="Services container-fluid servicesDreamWork">
+    <div class="row row-exp d-flex flex-row">
+        <div Class="col-xm-8 col-sm-8 col-md-8 col-lg-6 offset-lg-3 offset-sm-2 offset-md-2 offset-xm-2" >
+         <p class=" text-center service-Heading ">Printing Your Dream Works With Rose Color</p>
+        </div>
+    </div>
+
+<!--Dream Work-->
+<!-- <div class="container-fluid containerDreamWork"> -->
+<div class="row row-exp d-flex flex-row mt-5 ">
+  <div class="col-xm-12 col-sm-12 col-md-12 col-lg-6 d-flex justify-content-around imageprintDream">
+    <div class="dreamwork-image" id="abount">
+      <img src="{% static 'images/printDream.jpg' %} " alt="" class="img-responsive">
+    </div>
+  </div>
+  <div class="col-xm-12 col-sm-12 col-md-12 col-lg-6 d-flex justify-content-around text-expirence">
+  <div class="dreamwork-text">
+    <div class="row ">
+      <div class="col-4">
+        <div class="imageExperience"><img src="{% static 'images/30year.jpg' %}" class="img-responsive" alt=""></div>
+      </div>
+      <div class="col-8">
+        <div class="Experience-text">
+        
+        <p class="p-class"> publishing and graphic design, Lorem ipsum is a placeholder text
+         publishing and graphic design, Lorem ipsum is a placeholder text </p> 
+        </div>
+        
+        <div class="col-12 textdetail">
+        <p class="Experenice-Description p-class">publishing and graphic design, Lorem ipsum is a placeholder text
+          publishing and graphic design, Lorem ipsum is a placeholder text publishing and graphic design, Lorem ipsum is a placeholder text
+          publishing and graphic design, Lorem ipsum is a placeholder text </p>
+      </div>
+      <div class="col-12imagece-text ">
+        <div class="ceo-wrapper">
+          <div class="ceo-image">
+          <img src="{% static 'images/amir.jpeg' %}" alt="" class="img-responsive">
+         <span class="name">Khalid Rafique</span>
+          <div class="Designatons">CEO & Founder</div>
+        </div>
+        </div> 
+      </div> 
+  
+      </div>
+      <!-- <div class="col-12">
+        <p class="Experenice-Description p-class">publishing and graphic design, Lorem ipsum is a placeholder text
+          publishing and graphic design, Lorem ipsum is a placeholder text publishing and graphic design, Lorem ipsum is a placeholder text
+          publishing and graphic design, Lorem ipsum is a placeholder text </p>
+      </div>
+      <div class="col-12">
+        <div class="ceo-wrapper">
+          <div class="ceo-image">
+          <img src="{% static 'images/amir.jpeg' %}" alt="">
+         <span class="name">Khalid Rafique</span>
+          <div class="Designatons">CEO & Founder</div>
+        </div>
+        </div> 
+      </div> -->
+      </div>
+  </div>
+  </div>
+ 
+
+</div>
+<!-- </div> -->
+</section>
+<!-- </div> -->
+  
+
+  
+<!--Dream Work-->
+
+<div class="container-fluid whyChooseUs">
+<div class="row d-flex flex-row ">
+  <div class=" col-xm-12 col-sm-12 col-md-12 col-lg-6">
+  <div class="WhyChooseus-Text">
+    <h2 class="whytitle">Peopole Why Choose Our Rose Color</h2>
+  
+      <div class="row">
+        <div class="col-2">
+          <div class="whychoosCircule"> <i class="fa fa-long-arrow-right"></i></div>
+        </div>
+        <div class="col-10 textcontainer">
+          <Span class="textcircle"> Professional & Experience</Span>
+     
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <div class="whychoosCircule"> <i class="fa fa-long-arrow-right"></i></div>
+        </div>
+        <div class="col-10 textcontainer">
+          <Span> Low cost & digital printing agency</Span>
+     
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <div class="whychoosCircule"> <i class="fa fa-long-arrow-right"></i></div>
+        </div>
+        <div class="col-10 textcontainer">
+          <Span> Pixel perfect & accurate printing</Span>
+     
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <div class="whychoosCircule"> <i class="fa fa-long-arrow-right"></i></div>
+        </div>
+        <div class="col-10 textcontainer">
+          <Span> Transport & Low Transporation cost</Span>
+     
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <div class="whychoosCircule"> <i class="fa fa-long-arrow-right"></i></div>
+        </div>
+        <div class="col-10 textcontainer">
+          <Span> Exclusive team members</Span>
+     
+          
+        </div>
+      </div>
+    
+  </div>
+</div>
+  <div class="col-xm-12 col-sm-12 col-md-12 col-lg-6 whycooscol">
+    <div class="whychooseus-image">
+      <img src="{% static 'images/flyerpsd.png' %}" alt="" class="img-responsive">
+    </div>
+  </div>
+ 
+ 
+
+</div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<html>
+    <script type= "text/javascript">
+function closethis(){
+    document.forms["redirectData"].submit();
+}
+    </script>
+
+<body onload="closethis()";>
+    <h1>Please wait you will be redirect soon to <br> Jazzcash payment page</h1>
+    {{trans}}
+<form name="redirectData" method= "POST" action="{{trans.TRANSACTION_POST_URL}}">
+{%for dat,v in trans.items%}
+<input type="hidden" name="{{dat}}" value="{{v}}">
+{%endfor%}
+</form>
+</body>
+
+</html>

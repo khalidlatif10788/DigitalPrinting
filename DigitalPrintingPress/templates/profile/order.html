@@ -1,0 +1,54 @@
+
+{% extends "layout/profilebase.html" %}
+{% load static %}
+
+
+{%  block content %}
+       {%if orderlist %}
+           <div class="table-responsive">
+            <table class="table formback-order table-striped ">
+            
+                <thead class="custom-thead">
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Order Amount</th>
+                    <th>Adress id</th>
+                    <th>Status</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                
+                {% for order in orderlist %}
+                  <tr class="cartR"> 
+                    <td>{{order.Order_transcation_id}}</td>
+                     <td>{{order.order_date}}</td>
+                     <td>{{order.order_totalamount}}</td>
+                    <td>{{order.adressid}} </td>
+                    <td>{{order.Status}}</td>
+                    <!-- <td id="delete"><i class="fas fa-trash-alt" style="color: rgb(112, 15, 36); font-size:30px;"></i></td> -->
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+            </div>
+            {%else%}
+            <h3 style="color:red; margin-top:50px">Your order history is empty </h3>
+            <a href="{% url 'DigitalPrintingPress:allProductList' %}" class="" style="
+
+align-item:center;
+color: #0d6efd;
+    text-decoration: underline;
+    text-align: center;
+   margin-top:20px;
+    font-size: 30px;
+  
+    border-radius: 20px;
+
+">Go to Shop and Place order</a>
+            {%endif%}
+{% endblock%}
+
+    

@@ -1,0 +1,49 @@
+
+{% extends "layout/base2.html" %}
+{% load static %}
+
+
+{%  block content %}
+
+<section>
+<header><h1 class="text-center my-5">Manage Profile</h1></header>
+<div class="container">
+    <div class="row ">
+        <div class="col-3">
+          <ul>
+              <li><a type="button" class="form-control btn btn-success" href="#">Khalid</a></li>
+              <li>Address</li>
+          </ul>
+            
+        </div>
+        <div class="col-8">
+        
+
+        <div class="row">
+
+        
+            {% for dt in adress %}
+            <div class="col-6 mb-5">
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+            <div class="card-header bg-transparent border-success">Adress {{forloop.counter}}</div>
+            <div class="card-body text-success">
+              <h5 class="card-title">Name: {{dt.Adress_customer_id.name}}</h5>
+              <p class="card-text">Adress: {{dt.shipping_address}}</p>
+            </div>
+            <div class="card-footer bg-transparent border-success">Contact No. {{dt.dt.Adress_customer_id.phone}}</div>
+          </div>
+            </div>
+            {%endfor %}
+        
+
+        </div>
+
+        </div>
+     </div>
+ 
+       </div>
+</div>
+</section>
+{% endblock%}
+
+    

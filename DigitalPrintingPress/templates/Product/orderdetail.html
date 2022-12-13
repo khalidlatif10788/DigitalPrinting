@@ -1,0 +1,83 @@
+{% extends "layout/base2.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+
+    
+  
+
+
+  {% comment %} <form id="payment-form">
+    <div id="card-element">
+      <!-- Elements will create input elements here -->
+    </div>
+  
+    <!-- We'll put the error messages in this element -->
+    <div id="card-errors" role="alert"></div>
+  
+    <button id="submit">Submit Payment</button>
+  </form> {% endcomment %}
+
+
+
+<div class="container-fluid">
+<div class="row d-flex flex-row mt-5 mb-5">
+ <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-1 offset-lg-1 justify-content-around">
+    <div class="card text-white card-background mb-3" style="max-width: 36rem; height: auto">
+        <div class="card-header"><h2>Summary</h2></div>
+
+        <div class="card-body mb-5">
+          {% for d in cartobj %}
+          <span>Product Name :</span> &nbsp; &nbsp;<Span>{{d.cart_product_id.product_name}}</Span><br>
+          <span>Qty :</span> &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<Span class="ml-5">{{d.qty}}</Span><br>
+          <hr>
+          {% endfor %}
+          <div class="totalorderam mt=3">
+          <span >Total Amount :</span> &nbsp; &nbsp; &nbsp; &nbsp;<Span id="totalamount">{{totalamount}}</Span> <br>
+          </div>
+        </div>
+      </div>
+ </div>
+ <div class="col-xs-12 col-sm-12 col-md-6 offset-md-1 col-lg-6 offset-lg-1 justify-content-around">
+  <div class="row d-flex flex-row">
+    {% for ad in adress %}
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 justify-content-around">
+  <form>
+
+      <div class="card card-address mb-2">
+       
+        <h5 class="card-header">adress: {{ forloop.counter}}</h5>
+        <div class="card-body ">
+ 
+          
+          <h5 class="card-title">{{ad.Adress_customer_id.name}}</h5>
+          <p class="card-text">{{ ad.shipping_address}}</p>
+          <p class="card-text">{{ ad.Adress_customer_id.phone}}</p>
+          
+            <input type="radio" id="adid-{{ad.adress_id}}" name="rad" value="{{ad.adress_id}}">
+          
+          
+        </div>
+      </div>
+    </form>
+  </div>
+    {% endfor %}
+      <hr>
+
+      <div class="continue mb-3">
+
+        <input type="button" class="btn btn-success" id="checkoutbtn" value="Continue for Pay">
+   
+    </div>
+ </div>
+
+</div>
+
+</div>
+
+
+{%  endblock %}

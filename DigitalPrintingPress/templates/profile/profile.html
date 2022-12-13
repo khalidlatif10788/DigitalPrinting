@@ -1,0 +1,28 @@
+
+{% extends "layout/profilebase.html" %}
+{% load static %}
+
+
+{%  block content %}
+
+        <form action="" method="POST" novalidate class="form-adress">
+          {% csrf_token %}
+              <div class="mb-3">
+                <!-- <label for="exampleFormControlTextarea1" class="form-label">Enter New Address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="12" cols="200" ></textarea> -->
+              {{fm.as_p}}
+              </div>
+
+      <div class="mb-3">
+        
+        <input type="submit" class="form-control btn btn-success" name="Register">
+        
+      </div>
+      <div class="mb-3">
+        
+      </div>
+    </form>
+       
+{% endblock%}
+
+    

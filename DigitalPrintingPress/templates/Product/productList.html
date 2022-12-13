@@ -1,0 +1,110 @@
+{% extends "layout/base.html" %}
+
+
+{% block content %}
+ <div class="container- fluid">
+
+  <div class="row d-flex flex-row">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+      <div class="sidebar">
+        <div class="catgorybtn"> Categories</div>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+             <a href="{% url 'DigitalPrintingPress:allProductList'%}"><button  class="accordion-button main-cate-btn" type="button" data-bs-toggle="collapse" data-bs-target="#{{mainCate.main_category_id}}" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+               
+               <span id="main">All Categories</span> 
+              </button> </a>
+            </h2>
+            <div maincat="main" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            
+              <div class="accordion-body">
+              </div>
+            
+            </div>
+          </div>
+          {% for mainCate,val in main_category.items %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+             <a href="{% url 'DigitalPrintingPress:productList' mainCate.main_category_id %}"> <button  class="accordion-button main-cate-btn" type="button" data-bs-toggle="collapse" data-bs-target="#{{mainCate.main_category_id}}" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+               
+               <span id="main">{{mainCate.main_category_name}}</span> 
+              </button></a>
+            </h2>
+            <div maincat="main-{{mainCate.main_category_id}}" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            
+              <div class="accordion-body">
+              
+    
+                {% for  subcat in val %}
+                
+                <a href="{% url 'DigitalPrintingPress:subCatList' sub_cat_id=subcat.sub_category_id main_cat_id=subcat.sub_main_category_id.main_category_id %}">{{subcat}} </a>
+                
+                {% endfor %}
+          
+              </div>
+            
+            </div>
+          </div>
+          {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9  desplayServices">
+            <!--product category wise-->
+           
+                <div class="row d-flex flex-row" >
+                  {% for dcat in users %}
+                  <div class="col-xs-12 col-sm-12 col-md-6  col-lg-4 justify-content-around cardService">
+                    <div class="customcard">
+                      <div class="image-container">
+                        <a href="{% url 'DigitalPrintingPress:productDetail' dcat.product_id %}"><img src="{{dcat.product_photo.url}}" class="card-img-top" alt="..."></a>
+                    </div>
+                  
+               <p class="designoption">Different options available</p>
+               <h6 class="text-center product-price">Start From Rs. {{dcat.product_price}}</h6>
+      
+                    </div>
+                  </div>
+                  {% endfor %}
+                  
+                
+                </div>
+                
+  <!-- pagination start -->
+ 
+
+ {% if users.has_other_pages %}
+ <nav aria-label="..." class="pagination-wrapper">
+ <ul class="pagination">
+   {% if users.has_previous %}
+     <li class="page-item"><a href="?page={{ users.previous_page_number }}" class="page-link">&laquo;</a></li>
+   {% else %}
+     <li class="disabled page-item"><span  class="page-link">&laquo;</span></li>
+   {% endif %}
+   {% for i in users.paginator.page_range %}
+     {% if users.number == i %}
+       <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+     {% else %}
+       <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+     {% endif %}
+   {% endfor %}
+   {% if users.has_next %}
+     <li class="page-item"><a href="?page={{ users.next_page_number }}" class="page-link">&raquo;</a></li>
+   {% else %}
+     <li class="disabled page-item"><span  class="page-link">&raquo;</span></li>
+   {% endif %}
+ </ul>
+</nav>
+{% endif %}
+        
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+  {% endblock %}

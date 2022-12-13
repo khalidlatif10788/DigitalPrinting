@@ -1,0 +1,148 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik | Hind">
+   <script src="https://kit.fontawesome.com/5a988eaee1.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Rose Color</title>
+  </head>
+  <body>
+    
+
+        <nav class="navbar navbar-expand-lg  navbar-light  p-1 navCustom">
+            <div class="container">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src=" {% static 'images/logo.jpg' %}" style="width: 100px; height: 100px;" alt=""></a>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navUlCustom">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'DigitalPrintingPress:categoryList' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'DigitalPrintingPress:allProductList' %}">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'DigitalPrintingPress:allProductList' %}">Shop</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contuct Us</a>
+                  </li>
+                  
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                
+                {% if user.is_authenticated %}
+                <div class="cart-social">
+                  <span class="signinfontawsome">
+                    <i class='far fa-user-circle'></i>
+                  <span class="usertext" style="color: #0c8d59; font-weight:800;"> 
+                    Welcome {{ user.username }}</span></span>
+                    &nbsp;
+                 <div class="cart-social"><span class="signinfontawsome"><i class='far fa-user-circle'></i> <a href="{% url 'DigitalPrintingPress:profile-order' %}" style="text-decoration: none;"> Account</a></span>&nbsp;
+                   &#124; &nbsp; <a href="{% url 'DigitalPrintingPress:GoToCart'%}" style="text-decoration: none;"><span class="Cartfontawsome"><i class="fas fa-shopping-cart"></i> Cart</span><span class="cart-count" style=" top:50px;">{{Cart_count}}</span></a></div><span class="social-header"><a href="http://"> <img src="{% static 'images/whatsapp1.gif' %}" alt=""> <img src="{% static 'images/facebook1.gif' %}" alt=""> <img src="{% static 'images/twitter2.gif' %}" alt=""></a></span>
+                   {% else %}
+                 <div class="cart-social"><span class="signinfontawsome"><i class='far fa-user-circle'></i> <a href="{% url 'account_login' %}" style="text-decoration: none;"> Signin</a></span>&nbsp;
+                 {% endif %}
+                 
+                 
+              </div>
+            </div>
+           
+          </nav>
+         
+  <div class="container-fluid">
+<!-- Slider main container -->
+
+
+  {% block content %}
+  {% endblock %}
+
+
+  <footer>
+    <div class="container-fluid">
+    <div class="row d-flex flex-row">
+    <div class="col-xm-12 col-sm-12 col-md-6 col-lg-4">
+      <div class="googlemap">
+      <h3>Our Locations</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340.69518464703!2d73.74586951504477!3d33.14337167252238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391febf56115e29f%3A0xc1b5af57f7513df0!2sRose%20Color%20Imaging!5e0!3m2!1sen!2s!4v1660304277542!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    </div>
+    <div class="col-xm-12 col-sm-12 col-md-6 col-lg-4 socialfoot">
+    <div class="socialmedia">
+      <h3>Contact Us</h3>
+      <ul>
+      <li><a href="http://"> <span class="contactNo">Contact No:</span><span class="data"> 03435298459</span></a></li>
+      <li><a href="http://"> <span class="contactNo">Landline:</span><span class="data">0582796102</span></a></li>
+      <li class="socialli"><a href="http://"> <img src="{% static 'images/whatsapp1.gif' %}" alt=""> <img src="{% static 'images/facebook1.gif' %}" alt=""> <img src="{% static 'images/twitter2.gif' %}" alt=""></a></li>
+    
+      </ul>
+    </div>
+    </div>
+    <div class="col-xm-12 col-sm-12 col-md-6 col-lg-4 gettouch">
+      <div class="contactformclass">
+      <h3>Get in touch</h3>
+      <form method="POST" action="about.html">
+    
+        <input type="text" class="inputtext" id="firstinput" name="fullname" placeholder="Full Name">
+        <input type="text" class="inputtext" name="email" placeholder="Email">
+        <input type="text" class="inputtext" name="phone" placeholder="Phone"><br>
+        <input type="checkbox" class="checkboxText" id="checkid" name="termCondCheck" value="">
+        <label for="checkid" id="termlabel">I accept term & condation</label>
+        
+        
+        
+         </form>
+          <div class="subscribebtn">
+              Subscribe
+          </div>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+    
+    </div>
+    
+    
+    </footer>
+    <div class="copywright">
+      
+    </div>
+    
+    </div>
+    
+    
+    
+    
+    <!-- swiper .js--> 
+     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+     <script src="{% static 'Js/custom.js' %}"></script>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        -->
+      </body>
+    </html> 

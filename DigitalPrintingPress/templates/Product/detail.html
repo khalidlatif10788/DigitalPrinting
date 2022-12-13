@@ -1,0 +1,89 @@
+{% extends "layout/base2.html" %}
+{% load static %}
+{% block content %}
+    <!--Detail Section-->
+       <div class="container-fluid"> 
+        <div class="row d-flex flex-row detail mt-5">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 justify-content-around">
+            <div class="detail-image">
+            <div class="image-wraper">
+              <a href=""> <img src="{{product_item.product_photo.url}}" alt="" class="img-responsive"></a>
+              <svg class="" id="selection-area"width="200" height="200">
+                
+             </svg>
+             
+            </div>
+            {% comment %} <p>Set Selection Area</p> {% endcomment %}
+
+             <div class="slidecontainer">
+               
+               
+             </div>
+             
+
+             <div class="slidecontainer">
+              <span class="text-selection">Set Selection Area</span>
+              <input type="range" min="50" max="250" value="50" class="slider" id="myRange">
+              <span class="text-selection">Top-Bottom</span>
+              <input type="range" min="250" max="450" value="50" class="slider" id="top-possition">
+              <span class="text-selection">Right-Left</span>
+              <input type="range" min="100" max="350" value="50" class="slider" id="lef-possition">
+
+            </div>
+             <div class="slidecontainer">
+              {% comment %} <input type="range" min="100" max="350" value="50" class="slider" id="lef-possition"> {% endcomment %}
+  
+            </div>
+            <div class="imagedetail-description">
+                <p>Please insert text in boxes below. Our design team will get 
+                  in touch with the
+                   final version before proceeding with your order.</p>
+            </div>
+            <form action="" method="POST"  enctype="multipart/form-data"  class="formimage"  id="myform">
+                 {% csrf_token %}
+               <div class="mb-3 textinput">
+                    <input type="Text" class="form-control" id="textid" placeholder="Add your Text">
+                  </div>
+                  <div class="mb-3 fileinput">
+                 <input class="form-control" type="file" id="file" name="file">
+                  </div>
+            </form>
+            </div>
+          
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 offset-md-1 col-lg-6 offset-lg-1 ">
+                <div class="detail-text">
+                <p class="disclaimer"> <span class="disspan">Disclaimer:</span> Colours on screen may vary from final print owing to
+                   the difference in screen resolutions between devices. The file you’
+                   ve chosen is a little heavy, will load in a few seconds
+                </p>
+                <h4 class="Mug-heading">{{product_item.product_name}} NON CUSTOM</h4> 
+                 <input type="hidden"id="pid" value="{{product_item.product_id}}">
+                 <input type="hidden" id="pamount" value="{{product_item.product_price}}"">
+               
+                {% for key ,val in productdetail.items %}
+                <div class="pTitlewrap">
+                 <h5 class="pTitle" id="">{{key}}</h5>
+               <div class="coloredbtnwrapperbtn">
+                  {% for v in val %}
+                  <div class="{{key}}-btn coloredbtn" id="{{ forloop.counter }}">{{v}}</div>
+                  {% endfor %}
+                </div>
+                {% endfor %}
+               </div>
+             <h5>Qty</h5>
+                <div class="coloredbtnwrapperqty">
+                <input type="number" class="qty" id="qtybox" value="" >
+                 <div class="amountdiv" >Rs. <span id="totalAmount">0.0</span></div>
+                </div>
+                <div class="addtocartbtn">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+
+       </div>
+</div>
+
+{% endblock %}
+
+
