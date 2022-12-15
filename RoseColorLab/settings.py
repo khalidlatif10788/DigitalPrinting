@@ -33,7 +33,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 #DEBUG = True
 DEBUG = os.getenv("DEBUG", "False") == "True"
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+#ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = ['localhost','127.0.0.1']
 # ALLOWED_HOSTS = ["rosecolor.herokuapp.com","localhost"]
 # CSRF_TRUSTED_ORIGINS = ["https://rosecolor.herokuapp.com"]
